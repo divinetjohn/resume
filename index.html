@@ -486,7 +486,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="contact_me.php" method="post" role="form" class="php-email-form">
+            <form action="" id="submit-form" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -518,6 +518,26 @@
         </div>
 
       </div>
+      <script>
+        <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwSV1ceQeW7-3T0yqv-ZBWay03KxxbpALlaxZdz/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
